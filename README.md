@@ -6,11 +6,11 @@
 
 ## Screen shots ##
 
-1. Facade page
+- Facade page
 
 ![aboutcoder.com!](/ScreenShot-01.png)
 
-2. Blog page
+- Blog page
 
 ![aboutcoder.com!](/ScreenShot-02.png)
 
