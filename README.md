@@ -8,6 +8,20 @@
 
 ---
 
+---
+
+## Screen shots ##
+
+1. Facade page
+
+![aboutcoder.com!](/ScreenShot-01.png)
+
+2. Blog page
+
+![aboutcoder.com!](/ScreenShot-01.png)
+
+---
+
 ## Contributing ##
 
 1. Fork it
