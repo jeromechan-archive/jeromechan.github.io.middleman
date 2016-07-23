@@ -1,0 +1,15 @@
+文件内容包含：
+一、json.js
+    <!-- json editor -->
+    <!--<script type="text/javascript" src="../jsoneditor/jsoneditor.min.js"></script>-->
+
+    <!-- ace editor -->
+    <!--<script type="text/javascript" src="../jsoneditor/asset/ace/ace.js"></script>-->
+
+    <!-- json lint -->
+    <!--<script type="text/javascript" src="../jsoneditor/asset/jsonlint/jsonlint.js"></script>-->
+
+二、base64.js
+tools.aboutcoder.com/framework/CryptoJS-3.1.2/components/core-min.js
+tools.aboutcoder.com/framework/CryptoJS-3.1.2/components/enc-base64-min.js
+

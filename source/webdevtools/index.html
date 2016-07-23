@@ -1,0 +1,223 @@
+<html lang="zh">
+<head>
+    <title>WebDevTools</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Language" content="zh-CN">
+    <meta http-equiv="Cache-Control" content="max-age=43200" />
+    <meta name="keywords" content="json, json viewer, json在线查看, base64解码, base64编码"/>
+    <meta name="description" content="JSON Viewer - Convert JSON Strings to a Friendly Readable Format, base64编码, base64解码, web develop tools"/>
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="framework/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.min.css" rel="stylesheet">
+    <link href="extensions/jsoneditor/jsoneditor.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-road"></span>
+                 WebDevTools</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="views/feedback.html" target="_blank"><span class="glyphicon glyphicon-envelope"></span> Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="active" id="li-base64"><a href="#">Base64 Encoder</a></li>
+                <li id="li-json"><a href="#">JSON Formatter</a></li>
+                <li id="li-sql"><a href="#">SQL Generator</a></li>
+                <li id="li-xml"><a href="#">XML Formatter</a></li>
+                <li id="li-sql-formatter"><a href="#">SQL Formatter</a></li>
+                <li id="li-css-formatter"><a href="#">CSS Formatter</a></li>
+            </ul>
+            <p class="copyright"><a href="http://tools.aboutcoder.com/" id="a-copyright-text">
+                <!--版本声明信息-->
+            </a></p>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-base64" style="display:block;">
+            <h2 class="page-header">Base64</h2>
+
+            <div class="row placeholders">
+                <div class="col-xs-5">
+                    <span>Source：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-source"></textarea>
+                </div>
+                <div class="col-xs-2 col-center-block">
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-encode"
+                                onclick="javascript:base64_encode();">Encode<span
+                                class="glyphicon glyphicon-chevron-right"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-decode"
+                                onclick="javascript:base64_decode();"><span
+                                class="glyphicon glyphicon-chevron-left"></span>Decode
+                        </button>
+                    </p>
+                </div>
+                <div class="col-xs-5">
+                    <span>Base64：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-result"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-json" style="display:none;">
+            <h2 class="page-header">JSON</h2>
+
+            <div class="row">
+                <div class="col-xs-12" id="jsoneditor">
+                    <div style="text-align: right;">
+                        <a href="extensions/jsonviewer/index.html" target="_blank"><span class="glyphicon glyphicon-link"></span>旧版入口</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-sql" style="display:none;">
+            <h2 class="page-header">SQL Generator</h2>
+
+            <div class="row placeholders">
+                <div class="col-xs-5">
+                    <span>Excel Text：[
+                    <a href="upload/DB-TPL_EN.xlsx" target="_blank"><span
+                            class="glyphicon glyphicon-link"></span>Excel Template</a>
+                    ]</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-excelSource"></textarea>
+                </div>
+                <div class="col-xs-2 col-center-block">
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-generate"
+                                onclick="javascript:generate();">Generate<span
+                                class="glyphicon glyphicon-chevron-right"></span></button>
+                    </p>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="col-xs-5">
+                    <span>Create Table SQL：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-sqlResult"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-xml" style="display:none;">
+            <h2 class="page-header">XML Formatter</h2>
+
+            <div class="row placeholders">
+                <div class="col-xs-5">
+                    <span>Pretty XML：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-xml-pretty"></textarea>
+                </div>
+                <div class="col-xs-2 col-center-block">
+                    <p>
+                        <input type="checkbox" id="ck-xml-formatter-preserve-comments" checked="checked"/>
+                        <span style="color: gray;">Preserve Comments</span>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-minify"
+                                onclick="javascript:xml_minify();">Minify<span
+                                class="glyphicon glyphicon-chevron-right"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-pretty"
+                                onclick="javascript:xml_pretty();"><span
+                                class="glyphicon glyphicon-chevron-left"></span>Pretty
+                        </button>
+                    </p>
+                </div>
+                <div class="col-xs-5">
+                    <span>Minify XML：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-xml-minify"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-sql-formatter" style="display:none;">
+            <h2 class="page-header">SQL Formatter</h2>
+
+            <div class="row placeholders">
+                <div class="col-xs-5">
+                    <span>Pretty SQL：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-sql-pretty"></textarea>
+                </div>
+                <div class="col-xs-2 col-center-block">
+                    <p>
+                        <input type="checkbox" id="ck-sql-formatter-preserve-comments" checked="checked"/>
+                        <span style="color: gray;">Preserve Comments</span>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-sql-minify"
+                                onclick="javascript:sql_minify();">Minify<span
+                                class="glyphicon glyphicon-chevron-right"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-sql-pretty"
+                                onclick="javascript:sql_pretty();"><span
+                                class="glyphicon glyphicon-chevron-left"></span>Pretty
+                        </button>
+                    </p>
+                </div>
+                <div class="col-xs-5">
+                    <span>Minify SQL：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-sql-minify"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="div-css-formatter" style="display:none;">
+            <h2 class="page-header">CSS Formatter</h2>
+
+            <div class="row placeholders">
+                <div class="col-xs-5">
+                    <span>Pretty CSS：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-css-pretty"></textarea>
+                </div>
+                <div class="col-xs-2 col-center-block">
+                    <p>
+                        <input type="checkbox" id="ck-css-formatter-preserve-comments" checked="checked"/>
+                        <span style="color: gray;">Preserve Comments</span>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-css-minify"
+                                onclick="javascript:css_minify();">Minify<span
+                                class="glyphicon glyphicon-chevron-right"></span></button>
+                    </p>
+                    <p>
+                        <button type="button" class="btn btn-primary" id="btn-css-pretty"
+                                onclick="javascript:css_pretty();"><span
+                                class="glyphicon glyphicon-chevron-left"></span>Pretty
+                        </button>
+                    </p>
+                </div>
+                <div class="col-xs-5">
+                    <span>Minify CSS：</span>
+                    <textarea class="form-control textarea-readonly" rows="19" id="txt-css-minify"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="framework/jquery-1.11.1.min.js"></script>
+<script src="framework/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="js/base64.js"></script>
+<script src="js/common.js"></script>
+<script src="js/entry.js"></script>
+<script src="js/json.js"></script>
+<script src="js/pretty-data.js"></script>
+
+<!--站长统计 BEGIN-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1252898702'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1252898702%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<!--站长统计 END-->
+
+</body>
+</html>

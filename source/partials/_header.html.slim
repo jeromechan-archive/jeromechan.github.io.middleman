@@ -1,0 +1,14 @@
+header.header
+  #particles-js.hero-particles-js
+  .header__inn
+    .js-text-parallax
+      h1.header__logo
+        span
+          = link_to 'Jerome Chan', local_path('')
+          small= t(:front_dev) + ' ' + t(:like_coffee)
+      nav.header__social-nav
+        = partial "partials/social"
+
+    = link_to local_path('') do
+      img.header__avatar height="250px" src="#{image_path('avatar.png')}" srcset=("#{image_path('avatar.png')} 1x") width="250px" /
+      /img.header__avatar height="250px" src="#{image_path('avatar.png')}" srcset=("#{image_path('avatar@2x.png')} 2x") width="250px" /

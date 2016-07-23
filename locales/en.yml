@@ -1,0 +1,14 @@
+en:
+  hello_iam: Hello, I'm
+  like_coffee: at Tuniu Corp
+  front_dev: Web Developer
+  about_me: About me
+  blog: My blog
+  about: About
+  en: English
+  br: Chinese
+  navigation: Navigation
+  bibliography: Bibliography
+  webdevtools: Web Dev Tools
+  paths:
+    about: about

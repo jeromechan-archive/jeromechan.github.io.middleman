@@ -1,0 +1,12 @@
+= partial "partials/search-form"
+
+footer.footer
+  /nav.social-nav
+  /  = partial "partials/social"
+  small
+    = "Refactored with ❤ by #{link_to(site_author, site_url)} "
+    = "using #{link_to "middleman", "http://middlemanapp.com" , :target => :blank }"
+    = '<br />Copyright © ' + "2013-2016";
+
+script#dsq-count-scr async="true" data-cfasync="false" src="//#{disqus_shortname}.disqus.com/count.js"
+= javascript_include_tag "main"
