@@ -4,12 +4,6 @@
 
 ---
 
-![aboutcoder.com!](/aboutcoder.com.png)
-
----
-
----
-
 ## Screen shots ##
 
 1. Facade page
@@ -18,7 +12,7 @@
 
 2. Blog page
 
-![aboutcoder.com!](/ScreenShot-01.png)
+![aboutcoder.com!](/ScreenShot-02.png)
 
 ---
 
