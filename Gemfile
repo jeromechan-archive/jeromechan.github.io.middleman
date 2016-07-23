@@ -4,16 +4,29 @@ source 'http://rubygems.org'
 
 ruby "2.2.4"
 
-gem 'middleman', '~> 3.3.12'
-gem 'middleman-blog', '~> 3.5.3'
+# gem 'middleman-cli'
+# gem 'middleman-core', '~> 4.1', '>= 4.1.10'
+gem 'middleman', '~> 4.1.9'
+gem 'middleman-blog', '~> 4.0.1'
 gem 'middleman-gh-pages'
 gem 'middleman-syntax'
-gem 'middleman-slim'
+
+#########################################################################################################
+# upgrade to middleman-v4, but can not be resolved because of middleman-slim structures changed.
+#########################################################################################################
+# gem 'middleman-slim', '~> 0.2.2'
+gem 'middleman-slim', :github => 'yterajima/middleman-slim', :branch => 'v4'
+
 gem 'middleman-deploy'
 gem 'middleman-title'
 gem 'middleman-meta-tags'
 gem 'middleman-search_engine_sitemap' # for sitemap
 gem 'middleman-minify-html'
+
+#########################################################################################################
+## upgrade to middleman-v4
+#########################################################################################################
+gem "middleman-sprockets", "~> 4.0.0.rc"
 
 gem 'rack-contrib'
 gem 'rack-rewrite'

@@ -17,7 +17,7 @@ set :social_weibo, 'http://weibo.com/5812529126'
 set :social_twitter, 'https://twitter.com/jeromechan369'
 set :social_github, 'https://github.com/jeromechan'
 set :social_linkedin, 'https://br.linkedin.com/in/chenjinlong'
-set :disqus_shortname, ''
+set :disqus_shortname, 'aboutcoder'
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
@@ -149,7 +149,7 @@ configure :build do
   activate :cache_buster
   activate :asset_host, :host => ''
   set :google_analytics_account, ''
-  set :cnzz_analytics_account, ''
+  set :cnzz_analytics_account, '1252898702'
 
   # Automatic image dimensions on image_tag helper
   activate :automatic_image_sizes
